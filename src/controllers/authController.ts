@@ -6,13 +6,12 @@ export const authController = {
   //POST /auth/register
   register: async (req: Request, res: Response) => {
     const { firstName, lastName, email, password, birth, phone } = req.body;
-    ("");
 
     try {
       const userAlreadyExists = await userService.findByEmail(email);
 
       if (userAlreadyExists) {
-        throw new ErrorEvent("Este e-mail já está cadastrado.");
+        throw new Error("Este e-mail já está cadastrado.");
       }
 
       const user = await userService.create({
