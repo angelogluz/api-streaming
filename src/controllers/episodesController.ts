@@ -25,6 +25,10 @@ export const episodesController = {
   getWatchTime: async (req: AuthenticatedRequest, res: Response) => {
     const userId = req.user!.id;
     const episodeId = req.params.id;
+    // inicio 01 alteracao
+    console.log("UserID:", userId);
+    console.log("EpisodeID:", episodeId);
+    //fim 01 alteracao
 
     try {
       const watchTime = await episodeService.getWatchTime(
